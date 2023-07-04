@@ -23,12 +23,11 @@ public class TestContoller {
     @RequestMapping("/chatgptTest")
     public  void  test(){
 
-        Message message = Message.builder().role(Message.Role.USER).content("java").build();
+        Message message = Message.builder().role(Message.Role.USER).content("写一篇800字的高考作文,题目跟2019年高考一卷一样").build();
         ChatCompletion chatCompletion = ChatCompletion.builder().messages(Arrays.asList(message)).build();
         ChatCompletionResponse chatCompletionResponse = openAiClient.chatCompletion(chatCompletion);
         chatCompletionResponse.getChoices().forEach(e -> {
-            System.out.println(e.getMessage());
-        });
+            System.out.println(e.getMessage()); });
 
     }
 
